@@ -1,0 +1,15 @@
+# Cloudflare Pages headers
+# links.json must NEVER be cached, so your edits go live instantly.
+
+/links.json
+  Cache-Control: no-store, must-revalidate
+  Content-Type: application/json; charset=utf-8
+
+/
+  Cache-Control: public, max-age=0, must-revalidate
+
+/index.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable

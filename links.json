@@ -1,0 +1,85 @@
+{
+  "_comment": "EDIT ONLY THIS FILE. THE QR NEVER CHANGES.",
+  "person": {
+    "name": "Ankur Nahata",
+    "role": "Founder",
+    "company": "MiSHTHi CHAi",
+    "tagline": "Tradition Brewed to Perfectionon",
+    "initials": "AN",
+    "photo": "photo.jpg"
+  },
+  "theme": {
+    "cream": "#f2e7da",
+    "green": "#1a3125",
+    "gold": "#a87a38"
+  },
+  "contact": {
+    "phone": "+919913871122",
+    "whatsapp": "919913871122",
+    "care": "+916353537428",
+    "email": "mishthichai@gmail.com",
+    "website": "https://mishthichai.com/",
+    "address": "MiSHTHi CHAi, Plot No. 38/12, GIDC, Khatodra Wadi, Surat, Gujarat 395002",
+    "address_parts": {
+      "street": "Plot No. 38/12, GIDC, Khatodra Wadi",
+      "city": "Surat",
+      "region": "Gujarat",
+      "postcode": "395002",
+      "country": "India"
+    },
+    "maps_url": "https://maps.app.goo.gl/pJ5BRRCR3mqPJc6T8"
+  },
+  "links": [
+    {
+      "title": "Review Us on Google",
+      "subtitle": "Your 5 stars make our day",
+      "url": "https://g.page/r/Ce8ulpQq1r10EAE/review",
+      "icon": "star",
+      "highlight": true,
+      "active": true
+    },
+    {
+      "title": "Instagram",
+      "subtitle": "@mishthichai",
+      "url": "https://www.instagram.com/mishthichai/",
+      "icon": "instagram",
+      "active": true
+    },
+    {
+      "title": "Facebook",
+      "subtitle": "Mishthi Chai",
+      "url": "https://hi-in.facebook.com/people/Mishthi-Chai/100089158462542/",
+      "icon": "facebook",
+      "active": true
+    },
+    {
+      "title": "Google Business Profile",
+      "subtitle": "Photos, timings & updates",
+      "url": "https://maps.app.goo.gl/pJ5BRRCR3mqPJc6T8",
+      "icon": "google",
+      "active": true
+    },
+    {
+      "title": "Find Us on Google Maps",
+      "subtitle": "GIDC, Khatodra Wadi, Surat",
+      "url": "https://maps.app.goo.gl/pJ5BRRCR3mqPJc6T8",
+      "icon": "googlemaps",
+      "active": true
+    },
+    {
+      "title": "Our Website",
+      "subtitle": "mishthichai.com",
+      "url": "https://mishthichai.com/",
+      "icon": "web",
+      "active": true
+    },
+    {
+      "title": "Menu",
+      "subtitle": "Coming soon",
+      "url": "https://mishthichai.com/",
+      "icon": "menu",
+      "active": false
+    }
+  ],
+  "footer": "MiSHTHi CHAi® · Surat, Gujarat"
+}

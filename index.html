@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ankur Nahata — Mishthi Chai</title>
+<meta name="description" content="Ankur Nahata, Founder — Mishthi Chai. Tradition Brewed to Perfection">
+<meta name="theme-color" content="#f2e7da">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍵</text></svg>">
+<meta property="og:title" content="Ankur Nahata — Mishthi Chai">
+<meta property="og:description" content="Tradition Brewed to Perfection">
+<meta property="og:type" content="profile">
+<meta property="og:image" content="photo.jpg">
+<meta name="twitter:card" content="summary">
+
+<style>
+  :root{
+    --cream:#f2e7da;
+    --green:#1a3125;
+    --gold:#a87a38;
+
+    --paper:#fbf6ef;
+    --ink:#16281d;
+    --muted:#6d6055;
+    --line:rgba(26,49,37,.13);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    font-family:"Segoe UI",-apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue",Arial,sans-serif;
+    background:var(--cream);
+    color:var(--ink);
+    min-height:100vh;min-height:100dvh;
+    display:flex;justify-content:center;
+    padding:0 15px calc(30px + env(safe-area-inset-bottom));
+    overflow-x:hidden;
+    position:relative;
+  }
+  /* chai-cup + tea-leaf wallpaper (inline SVG data-URI, works offline) */
+  body::before{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.15;
+    background-repeat:repeat;
+    background-size:190px 190px;
+    background-image:url("data:image/svg+xml;utf8,\
+<svg xmlns='http://www.w3.org/2000/svg' width='150' height='150' viewBox='0 0 150 150'>\
+<g fill='none' stroke='%23a87a38' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'>\
+<path d='M26 46h26v9a13 13 0 0 1-26 0z'/>\
+<path d='M52 49h5a5 5 0 0 1 0 10h-1'/>\
+<path d='M23 71h32'/>\
+<path d='M34 36c-3-3 0-6 0-9M40 36c-3-3 0-6 0-9M46 36c-3-3 0-6 0-9'/>\
+<path d='M101 121h26v9a13 13 0 0 1-26 0z'/>\
+<path d='M127 124h5a5 5 0 0 1 0 10h-1'/>\
+<path d='M98 146h32'/>\
+<path d='M109 111c-3-3 0-6 0-9M115 111c-3-3 0-6 0-9M121 111c-3-3 0-6 0-9'/>\
+<path d='M96 34c7-8 17-10 26-8-1 9-7 17-16 19-6 1-10-4-10-11z'/>\
+<path d='M99 47c8-7 15-13 23-19'/>\
+<path d='M24 111c7-8 17-10 26-8-1 9-7 17-16 19-6 1-10-4-10-11z'/>\
+<path d='M27 124c8-7 15-13 23-19'/>\
+</g></svg>");
+  }
+  /* fine paper grain on top of the pattern */
+  body::after{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.5;
+    background-image:radial-gradient(circle at 1px 1px, rgba(26,49,37,.05) 1px, transparent 0);
+    background-size:22px 22px;
+  }
+  .wrap{width:100%;max-width:430px;position:relative;z-index:2}
+
+  /* ================= HERO (green curved panel like the card) ============ */
+  .hero{
+    position:relative;
+    margin:0 -15px 0;
+    padding:34px 26px 0;
+    text-align:center;
+    overflow:hidden;
+  }
+  .hero .leafbg{
+    position:absolute;top:-16px;right:-30px;width:128px;opacity:.30;
+    stroke:var(--gold);fill:none;stroke-width:1.5;pointer-events:none;
+    transform:rotate(12deg);
+  }
+  .hero .leafbg2{
+    position:absolute;top:128px;left:-36px;width:96px;opacity:.20;
+    stroke:var(--gold);fill:none;stroke-width:1.5;pointer-events:none;
+    transform:rotate(196deg);
+  }
+
+  /* avatar / monogram */
+  .avatar{
+    width:112px;height:112px;margin:0 auto 16px;position:relative;
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    background:linear-gradient(150deg,#22422f,var(--green));
+    color:var(--cream);
+    font-size:34px;font-weight:700;letter-spacing:2px;
+    border:2.5px solid var(--gold);
+    box-shadow:0 14px 34px rgba(26,49,37,.26), inset 0 0 0 6px rgba(242,231,218,.10);
+    overflow:hidden;
+    animation:pop .55s cubic-bezier(.2,.9,.3,1.3) both;
+  }
+  .avatar img{width:100%;height:100%;object-fit:cover;border-radius:50%}
+  @keyframes pop{from{opacity:0;transform:scale(.78)}to{opacity:1;transform:none}}
+
+  .brandline{
+    font-size:11px;font-weight:700;letter-spacing:4px;text-transform:uppercase;
+    color:var(--gold);margin-bottom:9px;
+  }
+  h1{
+    font-size:29px;font-weight:800;letter-spacing:-.3px;color:var(--green);
+    line-height:1.15;margin-bottom:5px;
+  }
+  .role{
+    font-family:Georgia,"Times New Roman",serif;font-style:italic;
+    font-size:16px;color:var(--muted);margin-bottom:14px;
+  }
+
+  /* gold ornamental divider (from the printed card) */
+  .orn{display:flex;align-items:center;justify-content:center;gap:9px;margin:0 auto 14px;max-width:230px}
+  .orn i{flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.75}
+  .orn svg{width:20px;height:11px;stroke:var(--gold);fill:none;stroke-width:1.5;flex:none}
+
+  .tagline{
+    font-size:12.5px;font-weight:700;letter-spacing:2.6px;text-transform:uppercase;
+    color:var(--green);opacity:.78;
+  }
+
+  .banner{
+    display:inline-flex;align-items:center;gap:8px;
+    margin-top:16px;padding:8px 17px;
+    background:rgba(26,49,37,.06);
+    border:1px solid rgba(26,49,37,.16);
+    border-radius:100px;
+    font-size:12.5px;font-weight:600;color:var(--green);
+  }
+  .dot{width:7px;height:7px;border-radius:50%;background:#2f8f4e;
+       box-shadow:0 0 0 0 rgba(47,143,78,.55);animation:pulse 2.2s infinite}
+  @keyframes pulse{70%{box-shadow:0 0 0 8px rgba(47,143,78,0)}100%{box-shadow:0 0 0 0 rgba(47,143,78,0)}}
+
+  /* ================= QUICK ACTIONS ============ */
+  .quick{display:flex;gap:9px;margin:26px 0 22px}
+  .qbtn{
+    flex:1;display:flex;flex-direction:column;align-items:center;gap:7px;
+    padding:14px 3px;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:15px;
+    color:var(--green);text-decoration:none;
+    font-size:11px;font-weight:700;letter-spacing:.4px;
+    box-shadow:0 2px 8px rgba(26,49,37,.05);
+    transition:transform .15s,box-shadow .2s,background .2s;
+  }
+  .qbtn svg{width:21px;height:21px;stroke:none;fill:var(--gold);color:var(--gold)}
+  .qbtn:active{transform:scale(.94);background:#fff;box-shadow:0 1px 3px rgba(26,49,37,.06)}
+
+  /* ================= LINKS ============ */
+  .links{display:flex;flex-direction:column;gap:11px}
+  .lnk{
+    display:flex;align-items:center;gap:14px;
+    padding:15px 17px;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:15px;
+    color:var(--ink);text-decoration:none;
+    box-shadow:0 2px 8px rgba(26,49,37,.05);
+    transition:transform .15s,box-shadow .2s,background .2s;
+    animation:slide .45s ease both;
+  }
+  @keyframes slide{from{opacity:0;transform:translateY(13px)}to{opacity:1;transform:none}}
+  .lnk:active{transform:scale(.98);background:#fff}
+
+  /* highlighted = deep green with gold, exactly like card back */
+  .lnk.hl{
+    background:linear-gradient(140deg,#22422f,var(--green));
+    border-color:var(--gold);
+    box-shadow:0 10px 26px rgba(26,49,37,.28);
+  }
+  .lnk.hl .ttl{color:var(--cream)}
+  .lnk.hl .sub{color:rgba(242,231,218,.72)}
+  .lnk.hl .ico{background:rgba(242,231,218,.12);border-color:rgba(168,122,56,.6)}
+  .lnk.hl .ico svg{stroke:var(--gold)}
+  .lnk.hl .arw{stroke:rgba(242,231,218,.6)}
+
+  .ico{
+    width:42px;height:42px;flex:none;border-radius:11px;
+    background:rgba(168,122,56,.10);
+    border:1px solid rgba(168,122,56,.22);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .ico svg{width:20px;height:20px;stroke:none;fill:var(--gold)}
+  /* non-brand tiles = solid gold badge with white glyph, exactly like the printed card */
+  .lnk .ico:not(.brand){background:var(--gold);border-color:var(--gold);
+       box-shadow:0 2px 6px rgba(168,122,56,.35)}
+  .lnk .ico:not(.brand) svg{fill:#fff;color:#fff}
+  .lnk.hl .ico:not(.brand){background:var(--gold);border-color:rgba(255,255,255,.5)}
+  /* official brand logos are solid-filled, never stroked */
+  svg.bi{fill:currentColor;stroke:none!important;stroke-width:0!important}
+  .ico svg.bi{width:21px;height:21px}
+  /* brand tiles get a clean white chip so the real colours read properly */
+  .lnk .ico.brand{background:#fff;border-color:rgba(26,49,37,.12);
+                  box-shadow:0 1px 3px rgba(26,49,37,.10)}
+  .lnk.hl .ico.brand{background:#fff;border-color:rgba(168,122,56,.55)}
+  .qbtn svg.bi{width:22px;height:22px}
+  .row svg.bi{width:17px;height:17px}
+
+  .txt{flex:1;min-width:0;display:flex;flex-direction:column}
+  .ttl{display:block;font-size:14.5px;font-weight:700;letter-spacing:.2px;color:var(--green);line-height:1.3}
+  .sub{display:block;font-size:12px;color:var(--muted);margin-top:2px;line-height:1.35;
+       overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .arw{width:16px;height:16px;flex:none;stroke:var(--gold);fill:none;stroke-width:2.4;
+       stroke-linecap:round;stroke-linejoin:round;opacity:.65}
+
+  /* ================= DETAILS BLOCK ============ */
+  .panel{
+    margin-top:22px;padding:18px 18px 6px;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:16px;
+    box-shadow:0 2px 8px rgba(26,49,37,.05);
+  }
+  .panel h2{
+    font-size:10.5px;font-weight:800;letter-spacing:2.6px;text-transform:uppercase;
+    color:var(--gold);margin-bottom:12px;
+  }
+  .row{display:flex;align-items:flex-start;gap:12px;padding:9px 0;border-top:1px solid var(--line)}
+  .row:first-of-type{border-top:none}
+  .row svg{width:15px;height:15px;flex:none;stroke:none;fill:var(--gold)}
+  /* gold circle badge around each contact glyph, like the printed card */
+  .row .badge{width:26px;height:26px;flex:none;margin-top:1px;border-radius:50%;
+       background:var(--gold);display:flex;align-items:center;justify-content:center;
+       box-shadow:0 1px 4px rgba(168,122,56,.35)}
+  .row .badge svg{fill:#fff;color:#fff}
+  .row .badge svg.bi{width:15px;height:15px}
+  .row a,.row span{font-size:13.5px;color:var(--ink);text-decoration:none;line-height:1.5;word-break:break-word}
+  .row small{display:block;font-size:10.5px;letter-spacing:1.2px;text-transform:uppercase;color:var(--muted);margin-bottom:1px}
+
+  /* ================= BUTTONS ============ */
+  .share{display:flex;gap:10px;margin-top:20px}
+  .sbtn{
+    flex:1;padding:14px;border-radius:14px;
+    font-size:13px;font-weight:700;font-family:inherit;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;gap:8px;
+    transition:.18s;
+  }
+  .sbtn svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  .sbtn.primary{background:var(--green);color:var(--cream);border:1px solid var(--green);
+                box-shadow:0 8px 20px rgba(26,49,37,.24)}
+  .sbtn.ghost{background:transparent;color:var(--green);border:1.5px solid rgba(26,49,37,.24)}
+  .sbtn:active{transform:scale(.97);opacity:.9}
+
+  footer{text-align:center;margin-top:28px;font-size:11.5px;color:var(--muted);line-height:1.8}
+  .fbrand{font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:var(--green);opacity:.8}
+
+  .toast{
+    position:fixed;left:50%;bottom:32px;transform:translate(-50%,90px);
+    background:var(--green);color:var(--cream);
+    padding:12px 22px;border-radius:100px;
+    font-size:13.5px;font-weight:600;
+    box-shadow:0 12px 30px rgba(26,49,37,.35);
+    border:1px solid var(--gold);
+    opacity:0;transition:.32s cubic-bezier(.2,.9,.3,1.2);z-index:99;pointer-events:none;
+  }
+  .toast.on{transform:translate(-50%,0);opacity:1}
+
+  .err{margin-top:30px;padding:18px;border-radius:14px;background:#fdeaea;
+       border:1px solid #e5a5a5;font-size:13.5px;line-height:1.6;color:#8c2f2f;text-align:left}
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <div class="hero">
+    <svg class="leafbg" viewBox="0 0 120 100" aria-hidden="true">
+      <!-- tea sprig: stem + three leaves -->
+      <path d="M14 88C34 74 58 56 96 22"/>
+      <path d="M60 55c-4-13 2-25 15-30 5 12 0 25-15 30z"/>
+      <path d="M60 55c13 3 25-3 29-16-13-4-25 2-29 16z"/>
+      <path d="M34 74c-4-11 1-21 12-25 4 10 0 21-12 25z"/>
+      <path d="M34 74c11 3 21-2 25-13-11-3-21 2-25 13z"/>
+      <path d="M88 30c-3-9 1-17 10-20 3 8 0 17-10 20z"/>
+    </svg>
+    <svg class="leafbg2" viewBox="0 0 120 100" aria-hidden="true">
+      <path d="M14 88C34 74 58 56 96 22"/>
+      <path d="M60 55c-4-13 2-25 15-30 5 12 0 25-15 30z"/>
+      <path d="M60 55c13 3 25-3 29-16-13-4-25 2-29 16z"/>
+      <path d="M34 74c-4-11 1-21 12-25 4 10 0 21-12 25z"/>
+    </svg>
+
+    <div class="avatar" id="avatar">··</div>
+    <div class="brandline" id="brandline"></div>
+    <h1 id="name">Loading…</h1>
+    <div class="role" id="role"></div>
+
+    <div class="orn">
+      <i></i>
+      <svg viewBox="0 0 24 12"><path d="M12 1c-3 0-5 3-5 5s2 5 5 5 5-3 5-5-2-5-5-5z" opacity=".9"/><path d="M2 6h5M17 6h5"/></svg>
+      <i></i>
+    </div>
+
+    <div class="tagline" id="tagline"></div>
+    <div id="bannerBox"></div>
+  </div>
+
+  <div class="quick" id="quick"></div>
+  <div class="links" id="links"></div>
+  <div id="detailBox"></div>
+
+  <div class="share" id="share"></div>
+
+  <footer>
+    <div class="fbrand" id="footer"></div>
+    <div style="margin-top:5px">Tap or scan anytime — always the latest details.</div>
+  </footer>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* Official brand marks — Simple Icons (CC0 1.0 Universal, public domain) */
+var BRAND = {
+  whatsapp:{c:'#25D366',d:'M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z'},
+  instagram:{c:'#E4405F',d:'M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077'},
+  facebook:{c:'#1877F2',d:'M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z'},
+  google:{c:'#4285F4',d:'M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z'},
+  googlemaps:{c:'#34A853',d:'M19.527 4.799c1.212 2.608.937 5.678-.405 8.173-1.101 2.047-2.744 3.74-4.098 5.614-.619.858-1.244 1.75-1.669 2.727-.141.325-.263.658-.383.992-.121.333-.224.673-.34 1.008-.109.314-.236.684-.627.687h-.007c-.466-.001-.579-.53-.695-.887-.284-.874-.581-1.713-1.019-2.525-.51-.944-1.145-1.817-1.79-2.671L19.527 4.799zM8.545 7.705l-3.959 4.707c.724 1.54 1.821 2.863 2.871 4.18.247.31.494.622.737.936l4.984-5.925-.029.01c-1.741.601-3.691-.291-4.392-1.987a3.377 3.377 0 0 1-.209-.716c-.063-.437-.077-.761-.004-1.198l.001-.007zM5.492 3.149l-.003.004c-1.947 2.466-2.281 5.88-1.117 8.77l4.785-5.689-.058-.05-3.607-3.035zM14.661.436l-3.838 4.563a.295.295 0 0 1 .027-.01c1.6-.551 3.403.15 4.22 1.626.176.319.323.683.377 1.045.068.446.085.773.012 1.22l-.003.016 3.836-4.561A8.382 8.382 0 0 0 14.67.439l-.009-.003zM9.466 5.868L14.162.285l-.047-.012A8.31 8.31 0 0 0 11.986 0a8.439 8.439 0 0 0-6.169 2.766l-.016.018 3.665 3.084z'},
+  youtube:{c:'#FF0000',d:'M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z'},
+  gmail:{c:'#EA4335',d:'M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z'},
+  x:{c:'#000000',d:'M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z'}
+};
+</script>
+<script>
+/* ==========================================================
+   Mishthi Chai — personal digital card
+   Never edit this file. Edit links.json only.
+   ========================================================== */
+
+var ICONS = {
+  /* Glyphs redrawn to match the printed MiSHTHi CHAi card:
+     solid filled shapes, same weight as the gold badges on the card. */
+  phone:'<path fill="currentColor" stroke="none" d="M6.6 2.6c.5-.5 1.3-.5 1.8 0l2.5 2.5c.5.5.5 1.3 0 1.8L9.4 8.4c-.3.3-.4.8-.2 1.2a13 13 0 0 0 5.2 5.2c.4.2.9.1 1.2-.2l1.5-1.5c.5-.5 1.3-.5 1.8 0l2.5 2.5c.5.5.5 1.3 0 1.8l-1.1 1.1c-1 1-2.5 1.4-3.8 1A19.6 19.6 0 0 1 4.5 8.5c-.4-1.3 0-2.8 1-3.8z"/>',
+  web:'<path fill="currentColor" stroke="none" d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm6.9 6h-2.6a15.6 15.6 0 0 0-1.4-3.6A8 8 0 0 1 18.9 8zM12 4.2c.7 1 1.3 2.4 1.7 3.8h-3.4c.4-1.4 1-2.8 1.7-3.8zM4.3 14a8 8 0 0 1 0-4h3a17.6 17.6 0 0 0 0 4zm.8 2h2.6c.3 1.3.8 2.6 1.4 3.6A8 8 0 0 1 5.1 16zm2.6-8H5.1a8 8 0 0 1 4-3.6C8.5 5.4 8 6.7 7.7 8zM12 19.8c-.7-1-1.3-2.4-1.7-3.8h3.4c-.4 1.4-1 2.8-1.7 3.8zM14.1 14H9.9a15.4 15.4 0 0 1 0-4h4.2a15.4 15.4 0 0 1 0 4zm.8 5.6c.6-1 1.1-2.3 1.4-3.6h2.6a8 8 0 0 1-4 3.6z"/>',
+  maps:'<path fill="currentColor" stroke="none" d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/>',
+  mail:'<path fill="currentColor" stroke="none" d="M3 5h18a1 1 0 0 1 1 1v.3l-10 5.9L2 6.3V6a1 1 0 0 1 1-1zm-1 3.6 9.5 5.6c.3.2.7.2 1 0L22 8.6V18a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z"/>',
+  headset:'<path fill="currentColor" stroke="none" d="M12 2a9 9 0 0 0-9 9v5a3 3 0 0 0 3 3h1a1 1 0 0 0 1-1v-6a1 1 0 0 0-1-1H5v-1a7 7 0 0 1 14 0v1h-2a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h1a3 3 0 0 0 3-3v-5a9 9 0 0 0-9-9z"/>',
+  star:'<path fill="currentColor" stroke="none" d="M12 2.5l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.3l-5.8 3.1 1.1-6.5-4.7-4.6 6.5-.9z"/>',
+  menu:'<path fill="currentColor" stroke="none" d="M5 3h14a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zm2.5 5h9v1.6h-9zm0 4h6.5v1.6H7.5z"/>',
+  save:'<path fill="currentColor" stroke="none" d="M5 3h10.2L21 8.8V19a2 2 0 0 1-2 2h-1v-7H6v7H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm3 2v4h7V5zm8 11v5H8v-5z"/>',
+  share:'<path fill="currentColor" stroke="none" d="M18 16.1c-.8 0-1.5.3-2 .8l-7.1-4.2c.1-.2.1-.5.1-.7s0-.5-.1-.7l7-4.1c.5.5 1.3.8 2.1.8a3 3 0 1 0-3-3c0 .2 0 .5.1.7L8 9.8a3 3 0 1 0 0 4.4l7.1 4.2c-.1.2-.1.4-.1.6a3 3 0 1 0 3-2.9z"/>',
+  link:'<path fill="currentColor" stroke="none" d="M10.6 13.4a1 1 0 0 1 0-1.4l1.4-1.4a1 1 0 0 1 1.4 1.4l-1.4 1.4a1 1 0 0 1-1.4 0zM7.8 16.2a3 3 0 0 1 0-4.2l2.1-2.1a1 1 0 1 1 1.4 1.4L9.2 13.4a1 1 0 0 0 1.4 1.4l2.1-2.1a1 1 0 1 1 1.4 1.4L12 16.2a3 3 0 0 1-4.2 0zm8.4-8.4a3 3 0 0 1 0 4.2l-2.1 2.1a1 1 0 0 1-1.4-1.4l2.1-2.1a1 1 0 0 0-1.4-1.4l-2.1 2.1a1 1 0 0 1-1.4-1.4L12 7.8a3 3 0 0 1 4.2 0z"/>',
+  facebook:'<path fill="currentColor" stroke="none" d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5H16.7V3.6c-.3 0-1.3-.1-2.4-.1-2.4 0-4 1.5-4 4.1v2.3H7.6V13h2.7v8z"/>',
+  instagram:'<path fill="currentColor" stroke="none" d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9s.7.8.9 1.4c.2.4.4 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c0 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4s-.8.7-1.4.9c-.4.2-1 .4-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2 0-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9s-.7-.8-.9-1.4c-.2-.4-.4-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c0-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4s.8-.7 1.4-.9c.4-.2 1-.4 2.2-.4C8.4 2.2 8.8 2.2 12 2.2zm0 3.8a6 6 0 1 0 0 12 6 6 0 0 0 0-12zm0 9.9a3.9 3.9 0 1 1 0-7.8 3.9 3.9 0 0 1 0 7.8zm7.6-10.1a1.4 1.4 0 1 1-2.8 0 1.4 1.4 0 0 1 2.8 0z"/>',
+  google:'<path fill="currentColor" stroke="none" d="M12 2a10 10 0 1 0 9.8 12h-9.8v-3.9h13.6c.1.7.2 1.3.2 2.1 0 5.8-3.9 10-9.8 10A10 10 0 1 1 12 2z"/>',
+  whatsapp:'<path fill="currentColor" stroke="none" d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm5.1 13.9c-.2.6-1.2 1.2-1.7 1.2-.5.1-1 .1-1.6-.1-.4-.1-.9-.3-1.5-.5-2.6-1.1-4.3-3.7-4.4-3.9-.1-.2-1-1.4-1-2.6 0-1.2.6-1.8.9-2.1.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 1.9c.1.1.1.3 0 .5l-.3.4-.4.4c-.1.1-.3.3-.1.5.1.3.6 1.1 1.4 1.8 1 .9 1.8 1.1 2 1.2.2.1.4.1.5-.1l.7-.9c.2-.2.3-.2.5-.1l1.9.9c.2.1.4.2.4.3.1.1.1.6-.1 1.1z"/>',
+  youtube:'<path fill="currentColor" stroke="none" d="M22 12s0-3.3-.4-4.9a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2C2 8.7 2 12 2 12s0 3.3.4 4.8a2.5 2.5 0 0 0 1.8 1.8c1.6.4 7.8.4 7.8.4s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8c.4-1.5.4-4.8.4-4.8zM10 15.1V8.9l5.2 3.1z"/>'
+};
+/* Renders an icon.
+   - If the name is an official brand mark (BRAND), draw the real logo path
+     filled in its official colour.
+   - Otherwise fall back to our gold line icon. */
+function svg(n, opts){
+  opts = opts || {};
+  var b = (typeof BRAND !== 'undefined') ? BRAND[n] : null;
+  if(b){
+    var fill = opts.mono ? 'currentColor' : b.c;
+    return '<svg class="bi" viewBox="0 0 24 24" aria-hidden="true">' +
+           '<path fill="' + fill + '" d="' + b.d + '"/></svg>';
+  }
+  return '<svg viewBox="0 0 24 24" aria-hidden="true">' + (ICONS[n] || ICONS.link) + '</svg>';
+}
+function esc(s){ return String(s==null?'':s).replace(/[&<>"']/g,function(c){
+  return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];}); }
+
+function isBrand(n){ return typeof BRAND!=='undefined' && !!BRAND[n]; }
+function isGmail(e){ return /@gmail\.com$/i.test(String(e||'')); }
+
+/* pretty-print Indian numbers: +919913871122 -> +91 99138 71122 */
+function niceTel(s){
+  var t=String(s||'').replace(/[^\d+]/g,'');
+  var m=t.match(/^\+91(\d{5})(\d{5})$/);
+  if(m) return '+91 '+m[1]+' '+m[2];
+  m=t.match(/^(\d{5})(\d{5})$/);
+  if(m) return m[1]+' '+m[2];
+  return s;
+}
+
+var tTimer;
+function toast(m){
+  var t=document.getElementById('toast');
+  t.textContent=m; t.classList.add('on');
+  clearTimeout(tTimer); tTimer=setTimeout(function(){t.classList.remove('on');},2000);
+}
+
+fetch('links.json?v='+Date.now(),{cache:'no-store'})
+  .then(function(r){ if(!r.ok) throw new Error('HTTP '+r.status); return r.json(); })
+  .then(render)
+  .catch(function(e){
+    document.getElementById('name').textContent='Setup needed';
+    document.getElementById('role').innerHTML=
+      '<div class="err"><b>Could not load links.json</b><br>'+esc(e.message)+
+      '<br><br>Keep <b>links.json</b> next to index.html, and open the page over http (Cloudflare Pages), not by double-clicking the file.</div>';
+  });
+
+function render(d){
+  var p=d.person||d.brand||{}, c=d.contact||{}, th=d.theme||{};
+
+  if(th.cream){ document.documentElement.style.setProperty('--cream',th.cream);
+    var m=document.querySelector('meta[name=theme-color]'); if(m) m.content=th.cream; }
+  if(th.green) document.documentElement.style.setProperty('--green',th.green);
+  if(th.gold)  document.documentElement.style.setProperty('--gold', th.gold);
+
+  document.title=(p.name||'Digital Card')+(p.company?' — '+p.company:'');
+  document.getElementById('brandline').textContent=p.company||'';
+  document.getElementById('name').textContent=p.name||'';
+  document.getElementById('role').textContent=p.role||'';
+  document.getElementById('tagline').textContent=p.tagline||'';
+
+  var av=document.getElementById('avatar');
+  var pic=p.photo||p.logo;
+  av.innerHTML = pic ? '<img src="'+esc(pic)+'" alt="'+esc(p.name)+'">'
+                     : esc(p.initials||(p.name||'?').charAt(0));
+
+  if(d.banner&&d.banner.show&&d.banner.text){
+    document.getElementById('bannerBox').innerHTML=
+      '<span class="banner"><span class="dot"></span>'+esc(d.banner.text)+'</span>';
+  }
+
+  /* quick actions */
+  var q=[];
+  if(c.phone)    q.push({t:'Call',    u:'tel:'+c.phone,              i:'phone'});
+  if(c.whatsapp) q.push({t:'WhatsApp',u:'https://wa.me/'+c.whatsapp, i:'whatsapp'});
+  if(c.email)    q.push({t:'Email',   u:'mailto:'+c.email,           i:isGmail(c.email)?'gmail':'mail'});
+  if(c.address||c.maps_url) q.push({t:'Location',
+      u:c.maps_url || ('https://maps.google.com/?q='+encodeURIComponent(c.address)), i:'googlemaps'});
+  document.getElementById('quick').innerHTML=q.map(function(x){
+    var ext=/^https?:/.test(x.u)?' target="_blank" rel="noopener"':'';
+    return '<a class="qbtn" href="'+esc(x.u)+'"'+ext+'>'+svg(x.i)+'<span>'+esc(x.t)+'</span></a>';
+  }).join('');
+
+  /* links */
+  var list=(d.links||[]).filter(function(l){return l.active!==false&&l.url;});
+  document.getElementById('links').innerHTML=list.map(function(l,i){
+    return '<a class="lnk'+(l.highlight?' hl':'')+'" href="'+esc(l.url)+
+      '" target="_blank" rel="noopener" style="animation-delay:'+(i*0.05)+'s">'+
+      '<span class="ico'+(isBrand(l.icon)?' brand':'')+'">'+svg(l.icon)+'</span><span class="txt">'+
+      '<span class="ttl">'+esc(l.title)+'</span>'+
+      (l.subtitle?'<span class="sub">'+esc(l.subtitle)+'</span>':'')+
+      '</span><svg class="arw" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg></a>';
+  }).join('');
+
+  /* details panel */
+  var rows='';
+  function row(ic,label,val,href){
+    if(!val) return;
+    var inner = href ? '<a href="'+esc(href)+'">'+esc(val)+'</a>' : '<span>'+esc(val)+'</span>';
+    rows+='<div class="row"><span class="badge">'+svg(ic,{mono:true})+'</span>'+
+          '<div><small>'+esc(label)+'</small>'+inner+'</div></div>';
+  }
+  row('phone','Phone',   niceTel(c.phone), 'tel:'+c.phone);
+  if(c.whatsapp) row('whatsapp','WhatsApp', niceTel('+'+String(c.whatsapp)), 'https://wa.me/'+c.whatsapp);
+  row('headset','Customer Care', niceTel(c.care), 'tel:'+c.care);
+  row(isGmail(c.email)?'gmail':'mail','Email', c.email, 'mailto:'+c.email);
+  row('web','Website',   (c.website||'').replace(/^https?:\/\//,'').replace(/\/$/,''), c.website);
+  row('googlemaps','Address', c.address,
+      c.maps_url || ('https://maps.google.com/?q='+encodeURIComponent(c.address||'')));
+  if(rows){
+    document.getElementById('detailBox').innerHTML=
+      '<div class="panel"><h2>Contact Details</h2>'+rows+'</div>';
+  }
+
+  /* buttons */
+  document.getElementById('share').innerHTML=
+    '<button class="sbtn primary" id="btnSave">'+svg('save')+'Save Contact</button>'+
+    '<button class="sbtn ghost" id="btnShare">'+svg('share')+'Share</button>';
+
+  document.getElementById('btnSave').onclick=function(){ saveVCard(p,c,d.links); };
+  document.getElementById('btnShare').onclick=function(){
+    var data={title:p.name||document.title,text:p.tagline||'',url:location.href};
+    if(navigator.share){ navigator.share(data).catch(function(){}); }
+    else if(navigator.clipboard){ navigator.clipboard.writeText(location.href); toast('Link copied'); }
+    else { toast(location.href); }
+  };
+
+  document.getElementById('footer').textContent=d.footer||'';
+}
+
+/* ==========================================================
+   vCard 3.0 builder — the main feature.
+   Saves name, role, company, BOTH phone numbers, WhatsApp,
+   email, website, full structured address, social profiles
+   and (optionally) the profile photo, straight into the phone.
+   ========================================================== */
+
+/* escape , ; and \ as required by the vCard spec */
+function vEsc(s){ return String(s==null?'':s).replace(/\\/g,'\\\\').replace(/;/g,'\\;').replace(/,/g,'\\,').replace(/\r?\n/g,'\\n'); }
+
+/* fold long lines at 75 octets — required by RFC 2426, and what makes
+   embedded photos import reliably on Android */
+function vFold(line){
+  if(line.length<=75) return line;
+  var out=line.slice(0,75), rest=line.slice(75);
+  while(rest.length>74){ out+='\r\n '+rest.slice(0,74); rest=rest.slice(74); }
+  if(rest.length) out+='\r\n '+rest;
+  return out;
+}
+
+function digits(s){ return String(s||'').replace(/\D/g,''); }
+
+function buildVCard(p, c, links, photoData){
+  var parts=(p.name||'').trim().split(/\s+/);
+  var last=parts.length>1?parts.pop():'', first=parts.join(' ');
+
+  var v=[];
+  v.push('BEGIN:VCARD');
+  v.push('VERSION:3.0');
+  v.push('N:'+vEsc(last)+';'+vEsc(first)+';;;');
+  v.push('FN:'+vEsc(p.name));
+  if(p.company) v.push('ORG:'+vEsc(p.company));
+  if(p.role)    v.push('TITLE:'+vEsc(p.role));
+
+  /* ---- phones. item#.X-ABLabel gives iPhone a real label ---- */
+  var item=0, seen={};
+  if(c.phone){
+    v.push('TEL;TYPE=CELL,VOICE,PREF:'+vEsc(c.phone));
+    seen[digits(c.phone)]=1;
+  }
+  if(c.whatsapp){
+    var wa='+'+digits(c.whatsapp);
+    if(!seen[digits(wa)]){
+      item++;
+      v.push('item'+item+'.TEL;TYPE=CELL:'+vEsc(wa));
+      v.push('item'+item+'.X-ABLabel:WhatsApp');
+      seen[digits(wa)]=1;
+    }
+  }
+  if(c.care && !seen[digits(c.care)]){
+    item++;
+    v.push('item'+item+'.TEL;TYPE=WORK,VOICE:'+vEsc(c.care));
+    v.push('item'+item+'.X-ABLabel:Customer Care');
+    seen[digits(c.care)]=1;
+  }
+
+  if(c.email) v.push('EMAIL;TYPE=INTERNET,PREF:'+vEsc(c.email));
+
+  /* ---- website ---- */
+  if(c.website) v.push('URL:'+vEsc(c.website));
+
+  /* ---- structured address: street;city;region;postcode;country
+         so Maps can navigate to it from the contact card ---- */
+  var A=c.address_parts;
+  if(A){
+    v.push('ADR;TYPE=WORK:;;'+vEsc(A.street)+';'+vEsc(A.city)+';'+
+           vEsc(A.region)+';'+vEsc(A.postcode)+';'+vEsc(A.country));
+    var oneLine=[A.street,A.city,A.region,A.postcode,A.country].filter(Boolean).join(', ');
+    v.push('LABEL;TYPE=WORK:'+vEsc(oneLine));
+  } else if(c.address){
+    v.push('ADR;TYPE=WORK:;;'+vEsc(c.address)+';;;;');
+    v.push('LABEL;TYPE=WORK:'+vEsc(c.address));
+  }
+
+  /* ---- social profiles + map, as labelled extra URLs.
+         Each distinct address is written once only. ---- */
+  var urlSeen={};
+  function norm(u){ return String(u||'').replace(/\/$/,'').toLowerCase(); }
+  if(c.website) urlSeen[norm(c.website)]=1;
+
+  function addUrl(u, label){
+    var k=norm(u);
+    if(!u || urlSeen[k]) return;
+    urlSeen[k]=1;
+    item++;
+    v.push('item'+item+'.URL:'+vEsc(u));
+    v.push('item'+item+'.X-ABLabel:'+vEsc(label));
+  }
+  (links||[]).forEach(function(l){
+    if(l.active===false) return;
+    addUrl(l.url, l.title);
+  });
+  addUrl(c.maps_url, 'Location');
+
+  /* X-SOCIALPROFILE is what iPhone uses to show real social rows */
+  (links||[]).forEach(function(l){
+    if(l.active===false || !l.url) return;
+    var t=String(l.icon||'').toLowerCase();
+    if(t==='instagram') v.push('X-SOCIALPROFILE;TYPE=instagram:'+vEsc(l.url));
+    if(t==='facebook')  v.push('X-SOCIALPROFILE;TYPE=facebook:'+vEsc(l.url));
+  });
+
+  if(p.tagline) v.push('NOTE:'+vEsc(p.tagline));
+  v.push('X-CARD-URL:'+vEsc(location.href));
+
+  /* ---- embedded photo (base64) ---- */
+  if(photoData){
+    v.push('PHOTO;ENCODING=b;TYPE='+photoData.type+':'+photoData.b64);
+  }
+
+  v.push('END:VCARD');
+  return v.map(vFold).join('\r\n')+'\r\n';
+}
+
+/* Read the profile photo and shrink it — big photos break vCard imports,
+   so we cap it to 400px and keep it well under ~60KB. */
+function loadPhoto(src){
+  return new Promise(function(resolve){
+    if(!src) return resolve(null);
+    var img=new Image();
+    img.crossOrigin='anonymous';
+    img.onload=function(){
+      try{
+        var S=400, cv=document.createElement('canvas');
+        var s=Math.min(S/img.width, S/img.height, 1);
+        cv.width=Math.round(img.width*s); cv.height=Math.round(img.height*s);
+        cv.getContext('2d').drawImage(img,0,0,cv.width,cv.height);
+        var url=cv.toDataURL('image/jpeg',0.82);
+        resolve({type:'JPEG', b64:url.split(',')[1]});
+      }catch(e){ resolve(null); }
+    };
+    img.onerror=function(){ resolve(null); };
+    img.src=src;
+  });
+}
+
+function saveVCard(p, c, links){
+  loadPhoto(p.photo).then(function(photo){
+    var text=buildVCard(p, c, links, photo);
+    var blob=new Blob([text],{type:'text/vcard;charset=utf-8'});
+    var a=document.createElement('a');
+    a.href=URL.createObjectURL(blob);
+    a.download=(p.name||'contact').replace(/\s+/g,'_')+'.vcf';
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(function(){URL.revokeObjectURL(a.href);},1500);
+    toast('Contact saved');
+  });
+}
+</script>
+</body>
+</html>
